@@ -15,6 +15,7 @@ const (
 
 type bookstoreLogger interface {
 	Printf(string, ...interface{})
+	Print(...interface{})
 }
 
 var (
@@ -85,10 +86,12 @@ func (log logger) Printf(format string, v ...interface{}) {
 	}
 }
 
+func (log logger) Print(v ...interface{}) {
+	log.Info(fmt.Sprintf("%v", v))
+}
 func (l logger) Info(msg string, tags ...zap.Field) {
 	log.log.Info(msg, tags...)
 	log.log.Sync()
-
 }
 
 func (l logger) Error(msg string, err error, tags ...zap.Field) {
