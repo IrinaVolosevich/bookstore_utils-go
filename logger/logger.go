@@ -80,14 +80,14 @@ func GetLogger() bookstoreLogger {
 
 func (log logger) Printf(format string, v ...interface{}) {
 	if len(v) == 0 {
-		log.Info(format)
+		Info(format)
 	} else {
-		log.Info(fmt.Sprintf(format, v...))
+		Info(fmt.Sprintf(format, v...))
 	}
 }
 
 func (log logger) Print(v ...interface{}) {
-	log.Info(fmt.Sprintf("%v", v))
+	Info(fmt.Sprintf("%v", v))
 }
 func Info(msg string, tags ...zap.Field) {
 	log.log.Info(msg, tags...)
