@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	envLogLevel = "LOG_LEVEL"
+	envLogLevel  = "LOG_LEVEL"
 	envLogOutput = "LOG_OUTPUT"
 )
 
